@@ -1,0 +1,36 @@
+name: Update programs
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # check every program every 6 hours
+    - cron: "0 3 * * 1"     # Mondays: also discover new programs
+  workflow_dispatch:         # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+concurrency: update
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Discover new programs
+        if: github.event.schedule == '0 3 * * 1' || github.event_name == 'workflow_dispatch'
+        run: uv run radar discover
+
+      - name: Check all programs
+        run: uv run radar update
+
+      - name: Commit changes
+        run: |
+          git config user.name "funds-radar"
+          git config user.email "funds-radar@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Update programs $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

@@ -1,0 +1,41 @@
+# The programs we track. One entry = one page the agent watches.
+# Add a program by appending a name + url. `discover` appends new ones automatically.
+programs:
+  # --- Accelerators ---
+  - { name: Y Combinator, url: "https://www.ycombinator.com/deal" }
+  - { name: Techstars, url: "https://www.techstars.com/accelerators" }
+  - { name: a16z speedrun, url: "https://speedrun.a16z.com/" }
+  - { name: Antler, url: "https://www.antler.co/pitch" }
+  - { name: Entrepreneur First, url: "https://www.joinef.com/" }
+  - { name: Neo, url: "https://neo.com/" }
+  - { name: HF0, url: "https://www.hf0.com/" }
+  - { name: PearX, url: "https://pear.vc/pearx/" }
+  - { name: 500 Global, url: "https://500.co/founders" }
+  - { name: Google for Startups Accelerator, url: "https://startup.google.com/programs/accelerator/" }
+  - { name: Seedcamp, url: "https://seedcamp.com/" }
+  - { name: Alchemist Accelerator, url: "https://www.alchemist.vc/" }
+  - { name: MassChallenge, url: "https://masschallenge.org/" }
+  - { name: Plug and Play, url: "https://www.plugandplaytechcenter.com/" }
+  - { name: Start-Up Chile, url: "https://www.startupchile.org/" }
+  - { name: Flat6Labs, url: "https://flat6labs.com/" }
+  - { name: Peak XV Surge, url: "https://surge.peakxv.com/" }
+  - { name: Creative Destruction Lab, url: "https://creativedestructionlab.com/" }
+  - { name: Founder Institute, url: "https://www.founderinstitute.com/" }
+  - { name: Conviction Embed, url: "https://www.conviction.com/embed" }
+  - { name: Afore Capital, url: "https://www.afore.vc/" }
+  - { name: Village Global, url: "https://www.villageglobal.com/" }
+  - { name: On Deck, url: "https://www.ondeck.co/" }
+
+  # --- Fellowships & grants ---
+  - { name: Thiel Fellowship, url: "https://thielfellowship.org/" }
+  - { name: Emergent Ventures, url: "https://www.mercatus.org/emergent-ventures" }
+  - { name: Z Fellows, url: "https://www.zfellows.com/" }
+  - { name: South Park Commons Founder Fellowship, url: "https://www.southparkcommons.com/founder-fellowship" }
+  - { name: 1517 Fund, url: "https://www.1517fund.com/" }
+  - { name: Echoing Green Fellowship, url: "https://echoinggreen.org/fellowship/" }
+  - { name: Activate Fellowship, url: "https://activate.org/" }
+
+  # --- Credits & perks programs ---
+  - { name: Microsoft for Startups, url: "https://www.microsoft.com/en-us/startups" }
+  - { name: AWS Activate, url: "https://aws.amazon.com/startups/credits/" }
+  - { name: NVIDIA Inception, url: "https://www.nvidia.com/en-us/startups/" }

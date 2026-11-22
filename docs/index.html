@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funds Radar</title>
+<style>
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #78716c;
+    --line: #e7e5e4; --accent: #0f766e; --open: #15803d; --closed: #a8a29e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+            --line: #292524; --accent: #2dd4bf; --open: #4ade80; --closed: #57534e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 16px 80px; }
+  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  input, select { font: inherit; color: var(--text); background: var(--surface);
+                  border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+  input { flex: 1 1 240px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .card h2 { font-size: 16px; margin: 0; }
+  .card h2 a { color: inherit; text-decoration: none; }
+  .card h2 a:hover { color: var(--accent); }
+  .tag { font-size: 12px; color: var(--muted); text-transform: capitalize; white-space: nowrap; }
+  .money { font-size: 20px; font-weight: 600; margin: 8px 0 2px; color: var(--accent); }
+  .terms { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+  ul { margin: 0 0 10px; padding-left: 18px; font-size: 13px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); }
+  .status-open, .status-rolling { color: var(--open); font-weight: 600; }
+  .status-closed { color: var(--closed); }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Funds Radar</h1>
+  <p class="sub" id="sub">Loading…</p>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search programs, benefits, locations…">
+    <select id="type"><option value="">All types</option></select>
+    <select id="status">
+      <option value="">Any status</option>
+      <option value="open">Open / rolling</option>
+      <option value="closed">Closed</option>
+    </select>
+    <select id="sort">
+      <option value="money">Most money</option>
+      <option value="deadline">Soonest deadline</option>
+      <option value="changed">Recently changed</option>
+    </select>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const usd = (n) => n == null ? "No cash / not stated" : "$" + (n >= 1e6 ? (n / 1e6).toFixed(n % 1e6 ? 1 : 0) + "M" : Math.round(n / 1e3) + "k");
+let programs = [];
+
+function render() {
+  const q = $("q").value.toLowerCase(), type = $("type").value, status = $("status").value;
+  let rows = programs.filter((p) =>
+    (!type || p.type === type) &&
+    (!status || (status === "open" ? ["open", "rolling"].includes(p.application_status) : p.application_status === status)) &&
+    (!q || JSON.stringify(p).toLowerCase().includes(q)));
+  const sort = $("sort").value;
+  if (sort === "deadline") rows.sort((a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"));
+  if (sort === "changed") rows.sort((a, b) => (b.last_changed || "").localeCompare(a.last_changed || ""));
+  $("grid").innerHTML = rows.length ? rows.map((p) => `
+    <article class="card">
+      <div class="top"><h2><a href="${esc(p.apply_url || p.source_url)}" target="_blank" rel="noopener">${esc(p.name)}</a></h2>
+        <span class="tag">${esc(p.type)}</span></div>
+      <div class="money">${usd(p.max_funding_usd)}</div>
+      <p class="terms">${esc(p.funding_summary)} · Equity: ${esc(p.equity_taken)}</p>
+      <ul>${p.benefits.slice(0, 4).map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+      <div class="meta">
+        <span class="status-${esc(p.application_status)}">${esc(p.application_status)}</span>
+        ${p.deadline ? `<span>Deadline ${esc(p.deadline)}</span>` : ""}
+        <span>${esc(p.location)}</span>
+        <a href="${esc(p.source_url)}" target="_blank" rel="noopener" style="color:inherit">source</a>
+      </div>
+    </article>`).join("") : `<p class="empty">No programs match.</p>`;
+}
+
+fetch("programs.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
+  programs = data;
+  const latest = data.map((p) => p.last_checked).sort().pop();
+  $("sub").textContent = `${data.length} accelerators, fellowships and grants worldwide · checked ${latest ? new Date(latest).toLocaleString() : "never"}`;
+  [...new Set(data.map((p) => p.type))].sort().forEach((t) => $("type").add(new Option(t[0].toUpperCase() + t.slice(1), t)));
+  ["q", "type", "status", "sort"].forEach((id) => $(id).addEventListener("input", render));
+  render();
+}).catch(() => { $("sub").textContent = "No data yet. Run `radar update`."; });
+</script>
+</body>
+</html>
