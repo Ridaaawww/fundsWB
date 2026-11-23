@@ -4,100 +4,215 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Funds Radar</title>
+<meta name="description" content="Funding and perks from accelerators, incubators, fellowships and grants worldwide, updated automatically.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #78716c;
-    --line: #e7e5e4; --accent: #0f766e; --open: #15803d; --closed: #a8a29e;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
-            --line: #292524; --accent: #2dd4bf; --open: #4ade80; --closed: #57534e; }
+    color-scheme: light;
+    --sand-0: #fdfbf7;   /* cards */
+    --sand-1: #f6f1e9;   /* page */
+    --sand-2: #ede5d8;   /* pills, hover */
+    --line: #e4dacb;
+    --ink: #1f1b16;
+    --ink-2: #5b5248;
+    --ink-3: #958a7c;
+    --clay: #b0582f;     /* the one accent */
+    --open: #4f7a4a;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text);
-         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 1100px; margin: 0 auto; padding: 40px 16px 80px; }
-  h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.02em; }
-  .sub { color: var(--muted); margin: 0 0 24px; }
-  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  input, select { font: inherit; color: var(--text); background: var(--surface);
-                  border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
-  input { flex: 1 1 240px; }
-  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
-  .top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-  .card h2 { font-size: 16px; margin: 0; }
-  .card h2 a { color: inherit; text-decoration: none; }
-  .card h2 a:hover { color: var(--accent); }
-  .tag { font-size: 12px; color: var(--muted); text-transform: capitalize; white-space: nowrap; }
-  .money { font-size: 20px; font-weight: 600; margin: 8px 0 2px; color: var(--accent); }
-  .terms { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
-  ul { margin: 0 0 10px; padding-left: 18px; font-size: 13px; }
-  .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); }
-  .status-open, .status-rolling { color: var(--open); font-weight: 600; }
-  .status-closed { color: var(--closed); }
-  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--sand-1); color: var(--ink);
+         font: 15px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  main { max-width: 1160px; margin: 0 auto; padding: 0 24px 96px; }
+
+  /* Header */
+  header { padding: 72px 0 40px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500;
+             letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--open);
+           box-shadow: 0 0 0 4px color-mix(in srgb, var(--open) 18%, transparent); }
+  h1 { font: 400 clamp(44px, 7vw, 80px)/1 var(--serif); letter-spacing: -0.02em; margin: 18px 0 16px; }
+  h1 em { color: var(--clay); }
+  .lede { font-size: 17px; color: var(--ink-2); max-width: 560px; margin: 0; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line);
+           border-bottom: 1px solid var(--line); margin: 0 0 32px; }
+  .stat { padding: 20px 0; }
+  .stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
+  .stat b { display: block; font: 400 36px/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 13px; color: var(--ink-3); }
+
+  /* Controls */
+  .controls { position: sticky; top: 0; z-index: 2; background: color-mix(in srgb, var(--sand-1) 88%, transparent);
+              backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+              padding: 14px 0; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .search { flex: 1 1 280px; position: relative; }
+  .search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--ink-3); }
+  input, select { font: inherit; font-size: 14px; color: var(--ink); background: var(--sand-0);
+                  border: 1px solid var(--line); border-radius: 999px; height: 42px; outline: none;
+                  transition: border-color .15s, box-shadow .15s; }
+  input { width: 100%; padding: 0 16px 0 40px; }
+  input:focus, select:focus { border-color: var(--ink-3); box-shadow: 0 0 0 3px var(--sand-2); }
+  select { padding: 0 34px 0 16px; appearance: none; cursor: pointer;
+           background: var(--sand-0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23958a7c' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center; }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; }
+  .pill { font: 500 13px var(--sans); color: var(--ink-2); background: transparent; border: 1px solid var(--line);
+          border-radius: 999px; padding: 6px 14px; cursor: pointer; text-transform: capitalize; transition: all .15s; }
+  .pill:hover { background: var(--sand-2); }
+  .pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--sand-0); }
+  .count { font-size: 13px; color: var(--ink-3); margin: 0 0 14px; }
+
+  /* Cards */
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+  .card { background: var(--sand-0); border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 18px;
+          display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .card:hover { transform: translateY(-2px); border-color: #d8ccb9;
+                box-shadow: 0 1px 2px rgba(60,40,20,.04), 0 12px 32px -12px rgba(60,40,20,.14); }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .type { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500;
+            color: var(--ink-3); text-transform: capitalize; }
+  .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .status.open, .status.rolling { color: var(--open); }
+  .card h2 { font: 400 26px/1.15 var(--serif); margin: 14px 0 4px; letter-spacing: -0.01em; }
+  .org { font-size: 13px; color: var(--ink-3); margin: 0 0 16px; }
+  .money { font: 600 22px/1.2 var(--sans); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .money.none { font-weight: 500; font-size: 15px; color: var(--ink-3); }
+  .terms { font-size: 13px; color: var(--ink-2); margin: 4px 0 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; }
+  .chips li { font-size: 12px; color: var(--ink-2); background: var(--sand-1); border-radius: 8px; padding: 4px 9px; }
+  .foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
+  .foot .where { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .apply { font-weight: 600; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .apply:hover { color: var(--clay); }
+  .deadline { color: var(--clay); font-weight: 500; }
+  .empty { grid-column: 1 / -1; text-align: center; padding: 80px 0; color: var(--ink-3); }
+  .empty b { display: block; font: 400 28px var(--serif); color: var(--ink); margin-bottom: 6px; }
+
+  footer { margin-top: 64px; font-size: 13px; color: var(--ink-3); display: flex; flex-wrap: wrap;
+           justify-content: space-between; gap: 8px; }
+
+  @media (max-width: 640px) {
+    main { padding: 0 16px 64px; }
+    header { padding: 48px 0 28px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(3) { display: none; }
+    .grid { grid-template-columns: 1fr; }
+    select { flex: 1 1 auto; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <h1>Funds Radar</h1>
-  <p class="sub" id="sub">Loading…</p>
+  <header>
+    <span class="eyebrow"><span class="pulse"></span><span id="checked">Updated automatically</span></span>
+    <h1>Money for <em>founders</em>,<br>in one place.</h1>
+    <p class="lede">Cheques, equity terms, credits and perks from accelerators, fellowships and grants around the world. An agent re-reads every program and logs what changes.</p>
+  </header>
+
+  <section class="stats" aria-label="Summary">
+    <div class="stat"><b id="s-total">—</b><span>programs tracked</span></div>
+    <div class="stat"><b id="s-open">—</b><span>open or rolling now</span></div>
+    <div class="stat"><b id="s-noequity">—</b><span>take no equity</span></div>
+  </section>
+
   <div class="controls">
-    <input id="q" type="search" placeholder="Search programs, benefits, locations…">
-    <select id="type"><option value="">All types</option></select>
-    <select id="status">
+    <label class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search programs, perks, countries…" aria-label="Search">
+    </label>
+    <select id="status" aria-label="Status">
       <option value="">Any status</option>
-      <option value="open">Open / rolling</option>
+      <option value="open">Open now</option>
       <option value="closed">Closed</option>
     </select>
-    <select id="sort">
+    <select id="sort" aria-label="Sort">
       <option value="money">Most money</option>
       <option value="deadline">Soonest deadline</option>
       <option value="changed">Recently changed</option>
+      <option value="name">A–Z</option>
     </select>
+    <div class="pills" id="types" role="group" aria-label="Type"></div>
   </div>
+
+  <p class="count" id="count"></p>
   <div class="grid" id="grid"></div>
+
+  <footer>
+    <span>Data is extracted by an AI agent from each program's own site. Check the source before applying.</span>
+    <a href="https://github.com/Ridaaawww/fundsWB">Source &amp; changelog on GitHub</a>
+  </footer>
 </main>
 <script>
 const $ = (id) => document.getElementById(id);
-const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const usd = (n) => n == null ? "No cash / not stated" : "$" + (n >= 1e6 ? (n / 1e6).toFixed(n % 1e6 ? 1 : 0) + "M" : Math.round(n / 1e3) + "k");
-let programs = [];
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const money = (n) => n >= 1e6 ? "$" + +(n / 1e6).toFixed(1) + "M" : "$" + Math.round(n / 1e3) + "k";
+const isOpen = (p) => p.application_status === "open" || p.application_status === "rolling";
+const noEquity = (p) => /^(none|no|0%|no equity)/i.test(p.equity_taken || "");
+let programs = [], type = "";
 
 function render() {
-  const q = $("q").value.toLowerCase(), type = $("type").value, status = $("status").value;
-  let rows = programs.filter((p) =>
+  const q = $("q").value.trim().toLowerCase(), status = $("status").value, sort = $("sort").value;
+  const rows = programs.filter((p) =>
     (!type || p.type === type) &&
-    (!status || (status === "open" ? ["open", "rolling"].includes(p.application_status) : p.application_status === status)) &&
+    (!status || (status === "open" ? isOpen(p) : !isOpen(p))) &&
     (!q || JSON.stringify(p).toLowerCase().includes(q)));
-  const sort = $("sort").value;
-  if (sort === "deadline") rows.sort((a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"));
-  if (sort === "changed") rows.sort((a, b) => (b.last_changed || "").localeCompare(a.last_changed || ""));
+  const by = {
+    money: (a, b) => (b.max_funding_usd || 0) - (a.max_funding_usd || 0),
+    deadline: (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"),
+    changed: (a, b) => (b.last_changed || "").localeCompare(a.last_changed || ""),
+    name: (a, b) => a.name.localeCompare(b.name),
+  };
+  rows.sort(by[sort]);
+  $("count").textContent = `${rows.length} of ${programs.length} programs`;
   $("grid").innerHTML = rows.length ? rows.map((p) => `
     <article class="card">
-      <div class="top"><h2><a href="${esc(p.apply_url || p.source_url)}" target="_blank" rel="noopener">${esc(p.name)}</a></h2>
-        <span class="tag">${esc(p.type)}</span></div>
-      <div class="money">${usd(p.max_funding_usd)}</div>
-      <p class="terms">${esc(p.funding_summary)} · Equity: ${esc(p.equity_taken)}</p>
-      <ul>${p.benefits.slice(0, 4).map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
-      <div class="meta">
-        <span class="status-${esc(p.application_status)}">${esc(p.application_status)}</span>
-        ${p.deadline ? `<span>Deadline ${esc(p.deadline)}</span>` : ""}
-        <span>${esc(p.location)}</span>
-        <a href="${esc(p.source_url)}" target="_blank" rel="noopener" style="color:inherit">source</a>
+      <div class="row"><span class="type">${esc(p.type)}</span><span class="status ${esc(p.application_status)}">${esc(p.application_status)}</span></div>
+      <h2>${esc(p.name)}</h2>
+      <p class="org">${esc(p.organization)}</p>
+      <div class="money ${p.max_funding_usd ? "" : "none"}">${p.max_funding_usd ? "Up to " + money(p.max_funding_usd) : "No cash · perks only"}</div>
+      <p class="terms">${[/^none\b/i.test(p.funding_summary || "") ? "" : esc(p.funding_summary), p.equity_taken ? "Equity: " + esc(p.equity_taken) : ""].filter(Boolean).join(" · ")}</p>
+      <ul class="chips">${p.benefits.slice(0, 4).map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+      <div class="foot row">
+        <span class="where">${p.deadline ? `<span class="deadline">Due ${esc(p.deadline)}</span> · ` : ""}${esc(p.location)}</span>
+        <a class="apply" href="${esc(p.apply_url || p.source_url)}" target="_blank" rel="noopener">Apply →</a>
       </div>
-    </article>`).join("") : `<p class="empty">No programs match.</p>`;
+    </article>`).join("")
+    : `<div class="empty"><b>Nothing matches</b>Try a different search or filter.</div>`;
 }
 
-fetch("programs.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
+function setup(data) {
   programs = data;
+  $("s-total").textContent = data.length;
+  $("s-open").textContent = data.filter(isOpen).length;
+  $("s-noequity").textContent = data.filter(noEquity).length;
   const latest = data.map((p) => p.last_checked).sort().pop();
-  $("sub").textContent = `${data.length} accelerators, fellowships and grants worldwide · checked ${latest ? new Date(latest).toLocaleString() : "never"}`;
-  [...new Set(data.map((p) => p.type))].sort().forEach((t) => $("type").add(new Option(t[0].toUpperCase() + t.slice(1), t)));
-  ["q", "type", "status", "sort"].forEach((id) => $(id).addEventListener("input", render));
+  if (latest) $("checked").textContent = "Checked " + new Date(latest).toLocaleDateString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const types = ["", ...new Set(data.map((p) => p.type).sort())];
+  $("types").innerHTML = types.map((t) => `<button class="pill" data-t="${esc(t)}" aria-pressed="${t === type}">${t ? esc(t) : "All"}</button>`).join("");
+  $("types").addEventListener("click", (e) => {
+    const b = e.target.closest(".pill"); if (!b) return;
+    type = b.dataset.t;
+    $("types").querySelectorAll(".pill").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    render();
+  });
+  ["q", "status", "sort"].forEach((id) => $(id).addEventListener("input", render));
   render();
-}).catch(() => { $("sub").textContent = "No data yet. Run `radar update`."; });
+}
+
+fetch("programs.json", { cache: "no-store" })
+  .then((r) => { if (!r.ok) throw 0; return r.json(); })
+  .then(setup)
+  .catch(() => {
+    $("count").textContent = "";
+    $("grid").innerHTML = `<div class="empty"><b>First run in progress</b>The agent hasn't filled the directory yet. Check back shortly.</div>`;
+  });
 </script>
 </body>
 </html>
