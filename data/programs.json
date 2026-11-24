@@ -1,0 +1,266 @@
+{
+  "1517-fund": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "1517 Fund",
+      "url": "https://www.1517fund.com/"
+    }
+  },
+  "500-global": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "500 Global",
+      "url": "https://500.co/founders"
+    }
+  },
+  "a16z-speedrun": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "a16z speedrun",
+      "url": "https://speedrun.a16z.com/"
+    }
+  },
+  "activate-fellowship": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Activate Fellowship",
+      "url": "https://activate.org/"
+    }
+  },
+  "afore-capital": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Afore Capital",
+      "url": "https://www.afore.vc/"
+    }
+  },
+  "alchemist-accelerator": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Alchemist Accelerator",
+      "url": "https://www.alchemist.vc/"
+    }
+  },
+  "antler": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "Antler",
+      "url": "https://www.antler.co/pitch"
+    }
+  },
+  "aws-activate": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "AWS Activate",
+      "url": "https://aws.amazon.com/startups/credits/"
+    }
+  },
+  "conviction-embed": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Conviction Embed",
+      "url": "https://www.conviction.com/embed"
+    }
+  },
+  "creative-destruction-lab": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Creative Destruction Lab",
+      "url": "https://creativedestructionlab.com/"
+    }
+  },
+  "echoing-green-fellowship": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Echoing Green Fellowship",
+      "url": "https://echoinggreen.org/fellowship/"
+    }
+  },
+  "emergent-ventures": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Emergent Ventures",
+      "url": "https://www.mercatus.org/emergent-ventures"
+    }
+  },
+  "entrepreneur-first": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "Entrepreneur First",
+      "url": "https://www.joinef.com/"
+    }
+  },
+  "flat6labs": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Flat6Labs",
+      "url": "https://flat6labs.com/"
+    }
+  },
+  "founder-institute": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Founder Institute",
+      "url": "https://www.founderinstitute.com/"
+    }
+  },
+  "google-for-startups-accelerator": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Google for Startups Accelerator",
+      "url": "https://startup.google.com/programs/accelerator/"
+    }
+  },
+  "hf0": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "HF0",
+      "url": "https://www.hf0.com/"
+    }
+  },
+  "masschallenge": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "MassChallenge",
+      "url": "https://masschallenge.org/"
+    }
+  },
+  "microsoft-for-startups": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Microsoft for Startups",
+      "url": "https://www.microsoft.com/en-us/startups"
+    }
+  },
+  "neo": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "Neo",
+      "url": "https://neo.com/"
+    }
+  },
+  "nvidia-inception": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "NVIDIA Inception",
+      "url": "https://www.nvidia.com/en-us/startups/"
+    }
+  },
+  "on-deck": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "On Deck",
+      "url": "https://www.ondeck.co/"
+    }
+  },
+  "peak-xv-surge": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Peak XV Surge",
+      "url": "https://surge.peakxv.com/"
+    }
+  },
+  "pearx": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "PearX",
+      "url": "https://pear.vc/pearx/"
+    }
+  },
+  "plug-and-play": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Plug and Play",
+      "url": "https://www.plugandplaytechcenter.com/"
+    }
+  },
+  "seedcamp": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Seedcamp",
+      "url": "https://seedcamp.com/"
+    }
+  },
+  "south-park-commons-founder-fellowship": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "South Park Commons Founder Fellowship",
+      "url": "https://www.southparkcommons.com/founder-fellowship"
+    }
+  },
+  "start-up-chile": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Start-Up Chile",
+      "url": "https://www.startupchile.org/"
+    }
+  },
+  "techstars": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "Techstars",
+      "url": "https://www.techstars.com/accelerators"
+    }
+  },
+  "thiel-fellowship": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Thiel Fellowship",
+      "url": "https://thielfellowship.org/"
+    }
+  },
+  "village-global": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:05+00:00",
+    "source": {
+      "name": "Village Global",
+      "url": "https://www.villageglobal.com/"
+    }
+  },
+  "y-combinator": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:04+00:00",
+    "source": {
+      "name": "Y Combinator",
+      "url": "https://www.ycombinator.com/deal"
+    }
+  },
+  "z-fellows": {
+    "error": "\"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for the `Authorization` header to be explicitly omitted\"",
+    "last_checked": "2026-11-24T07:23:06+00:00",
+    "source": {
+      "name": "Z Fellows",
+      "url": "https://www.zfellows.com/"
+    }
+  }
+}
