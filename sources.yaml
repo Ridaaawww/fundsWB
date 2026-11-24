@@ -3,27 +3,18 @@
 programs:
   # --- Accelerators ---
   - { name: Y Combinator, url: "https://www.ycombinator.com/deal" }
-  - { name: Techstars, url: "https://www.techstars.com/accelerators" }
   - { name: a16z speedrun, url: "https://speedrun.a16z.com/" }
-  - { name: Antler, url: "https://www.antler.co/pitch" }
   - { name: Entrepreneur First, url: "https://www.joinef.com/" }
-  - { name: Neo, url: "https://neo.com/" }
   - { name: HF0, url: "https://www.hf0.com/" }
   - { name: PearX, url: "https://pear.vc/pearx/" }
-  - { name: 500 Global, url: "https://500.co/founders" }
-  - { name: Google for Startups Accelerator, url: "https://startup.google.com/programs/accelerator/" }
   - { name: Seedcamp, url: "https://seedcamp.com/" }
   - { name: Alchemist Accelerator, url: "https://www.alchemist.vc/" }
   - { name: MassChallenge, url: "https://masschallenge.org/" }
   - { name: Plug and Play, url: "https://www.plugandplaytechcenter.com/" }
-  - { name: Start-Up Chile, url: "https://www.startupchile.org/" }
-  - { name: Flat6Labs, url: "https://flat6labs.com/" }
   - { name: Peak XV Surge, url: "https://surge.peakxv.com/" }
   - { name: Creative Destruction Lab, url: "https://creativedestructionlab.com/" }
   - { name: Founder Institute, url: "https://www.founderinstitute.com/" }
   - { name: Conviction Embed, url: "https://www.conviction.com/embed" }
-  - { name: Afore Capital, url: "https://www.afore.vc/" }
-  - { name: Village Global, url: "https://www.villageglobal.com/" }
   - { name: On Deck, url: "https://www.ondeck.co/" }
 
   # --- Fellowships & grants ---
@@ -31,7 +22,6 @@ programs:
   - { name: Emergent Ventures, url: "https://www.mercatus.org/emergent-ventures" }
   - { name: Z Fellows, url: "https://www.zfellows.com/" }
   - { name: South Park Commons Founder Fellowship, url: "https://www.southparkcommons.com/founder-fellowship" }
-  - { name: 1517 Fund, url: "https://www.1517fund.com/" }
   - { name: Echoing Green Fellowship, url: "https://echoinggreen.org/fellowship/" }
   - { name: Activate Fellowship, url: "https://activate.org/" }
 
@@ -39,3 +29,181 @@ programs:
   - { name: Microsoft for Startups, url: "https://www.microsoft.com/en-us/startups" }
   - { name: AWS Activate, url: "https://aws.amazon.com/startups/credits/" }
   - { name: NVIDIA Inception, url: "https://www.nvidia.com/en-us/startups/" }
+
+  # --- Added by research (Nov 2026) and `npm run discover` ---
+  - { name: "Techstars Accelerators", url: "https://www.techstars.com/investment-terms" }
+  - { name: "Neo Residency", url: "https://neo.com/residency" }
+  - { name: "Afore Founders-in-Residence", url: "https://www.afore.vc/residence" }
+  - { name: "Village Global Velocity", url: "https://www.villageglobal.com/velocity" }
+  - { name: "500 Global 500 Fellowship", url: "https://500.co/founders/flagship" }
+  - { name: "NEXT Canada NEXT AI", url: "https://www.nextcanada.com/next-ai/" }
+  - { name: "Antler US", url: "https://www.antler.co/location/us" }
+  - { name: "gener8tor Investment Accelerators", url: "https://www.gener8tor.com/investment-accelerators" }
+  - { name: "1517 Fund Medici Program", url: "https://www.1517fund.com/medici" }
+  - { name: "Antler Disrupt", url: "https://www.antler.co/blog/the-antler-disrupt-deal" }
+  - { name: "Google for Startups Cloud Program", url: "https://cloud.google.com/startup/benefits" }
+  - { name: "Stripe Atlas", url: "https://stripe.com/atlas" }
+  - { name: "OpenAI for Startups", url: "https://openai.com/startups/" }
+  - { name: "Claude for Startups", url: "https://claude.com/programs/startups" }
+  - { name: "Cloudflare for Startups", url: "https://www.cloudflare.com/forstartups/" }
+  - { name: "Notion for Startups", url: "https://www.notion.com/startups" }
+  - { name: "HubSpot for Startups", url: "https://www.hubspot.com/startups" }
+  - { name: "O'Shaughnessy Fellowships", url: "https://www.osv.llc/fellowships" }
+  - { name: "Ethereum Foundation Ecosystem Support Program", url: "https://esp.ethereum.foundation/applicants" }
+  - { name: "STATION F Founders Program", url: "https://stationf.co/programs/in-house" }
+  - { name: "EIC Accelerator", url: "https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en" }
+  - { name: "EXIST Gründungsstipendium", url: "https://www.exist.de/programm/gruendungsstipendium/" }
+  - { name: "Bourse French Tech", url: "https://www.bpifrance.fr/catalogue-offres/bourse-french-tech" }
+  - { name: "Startup Wise Guys Flagship Accelerator", url: "https://startupwiseguys.com/growing/flagship-accelerator/" }
+  - { name: "Northwestern Medicine & Founders Factory Healthcare Accelerator", url: "https://foundersfactory.com/northwestern-medicine-healthcare-accelerator/" }
+  - { name: "Antler UK", url: "https://www.antler.co/location/uk" }
+  - { name: "Techstars London Accelerator", url: "https://www.techstars.com/accelerators/london" }
+  - { name: "ABN AMRO + Techstars Future of Finance Accelerator", url: "https://www.techstars.com/accelerators/abn-amro-techstars-future-of-finance-accelerator" }
+  - { name: "Zinc Venture Builder", url: "https://www.zinc.vc/programmes/startup-route/" }
+  - { name: "Rockstart Energy", url: "https://rockstart.com/energy/" }
+  - { name: "Lanzadera", url: "https://lanzadera.es/programa/" }
+  - { name: "Kickstart Innovation", url: "https://www.kickstart-innovation.com/join-startup" }
+  - { name: "Enterprise Ireland Pre-Seed Start Fund", url: "https://www.enterprise-ireland.com/en/supports/pre-seed-start-fund" }
+  - { name: "Wayra", url: "https://www.wayra.com/investment" }
+  - { name: "NDRC Accelerator", url: "https://www.ndrc.ie/accelerator" }
+  - { name: "Bethnal Green Ventures", url: "https://bethnalgreenventures.com/apply" }
+  - { name: "Carbon13 Venture Builder Cambridge", url: "https://carbonthirteen.com/programmes/venture-builder-cambridge/" }
+  - { name: "Venture Kick", url: "https://www.entrepreneurship.zhaw.ch/en/resources/venture-kick" }
+  - { name: "High-Tech Gründerfonds", url: "https://www.htgf.de/en/" }
+  - { name: "Antler India", url: "https://www.antler.co/location/india" }
+  - { name: "Entrepreneur First Bangalore", url: "https://www.joinef.com/faqs/bangalore/" }
+  - { name: "Accel Atoms", url: "https://www.accel.com/noteworthies/google-joins-accel-to-turbocharge-ai-founders-with-atoms-ai-cohort-2026" }
+  - { name: "Google for Startups Accelerator: India", url: "https://startup.google.com/programs/accelerator/india/" }
+  - { name: "National Incubation Center Karachi", url: "https://nickarachi.com/faqs/" }
+  - { name: "NSF Sri Lanka Start-Up Grant Scheme", url: "https://www.nsf.gov.lk/index.php/si/component/content/article/32-announcements/905-call-for-applications-nsf-technology-development-and-start-up-grant-schemes-2026" }
+  - { name: "Antler Singapore", url: "https://www.antler.co/location/singapore" }
+  - { name: "Antler Indonesia", url: "https://www.antler.co/location/indonesia" }
+  - { name: "Antler Vietnam", url: "https://www.antler.co/vietnam" }
+  - { name: "Iterative", url: "https://www.iterative.vc/apply" }
+  - { name: "Startup SG Founder", url: "https://www.startupsg.gov.sg/programmes/4894/startup-sg-founder" }
+  - { name: "Google for Startups Accelerator: Southeast Asia", url: "https://startup.google.com/programs/accelerator/southeast-asia/" }
+  - { name: "Cradle CIP Spark", url: "https://cradle.com.my/cip-spark/" }
+  - { name: "DICT Startup Grant Fund (revised 2026)", url: "https://tribune.net.ph/2026/11/17/govt-opens-p15-m-grants-to-unregistered-startups" }
+  - { name: "100X.VC", url: "https://www.100x.vc/" }
+  - { name: "Startup SG Tech", url: "https://www.startupsg.gov.sg/programmes/4894/startup-sg-tech" }
+  - { name: "NASSCOM Startups", url: "https://nasscom.in/startups" }
+  - { name: "Antler Malaysia", url: "https://www.antler.co/malaysia" }
+  - { name: "Hub71 Access Programme", url: "https://www.mediaoffice.abudhabi/en/technology/hub71-selects-27-startups-for-cohort-18-in-first-all-international-intake/" }
+  - { name: "Antler MENAP", url: "https://www.antler.co/location/saudi-arabia" }
+  - { name: "Flat6Labs Ignite Morocco", url: "https://flat6labs.com/program/ignite-morocco/" }
+  - { name: "Flat6Labs StartMashreq", url: "https://flat6labs.com/program/investit-copy/" }
+  - { name: "Sanabil Accelerator by 500 Global", url: "https://mena.aplica.500.co/en/sites/mena" }
+  - { name: "Google for Startups Accelerator: MENA & Turkey", url: "https://startup.google.com/programs/accelerator/middle-east-north-africa-turkey/" }
+  - { name: "Africa's Business Heroes", url: "https://africabusinessheroes.org/" }
+  - { name: "Tony Elumelu Foundation Entrepreneurship Programme", url: "https://www.tonyelumelufoundation.org/tef-entrepreneurship-programme/faqs" }
+  - { name: "Google for Startups Accelerator: Africa", url: "https://startup.google.com/programs/accelerator/africa/" }
+  - { name: "MEST AI Startup Program", url: "https://meltwater.org/mest-ai-startup-program/" }
+  - { name: "Villgro Africa Incubation", url: "https://villgroafrica.org/innovators/apply-now/" }
+  - { name: "Catalyst Fund", url: "https://www.thecatalystfund.com/pitch-to-us" }
+  - { name: "Antler East Africa", url: "https://www.antler.co/location/kenya" }
+  - { name: "Antler Nigeria", url: "https://www.antler.co/location/nigeria" }
+  - { name: "CcHUB Incubation", url: "https://cchub.africa/startups/" }
+  - { name: "Africa Prize for Engineering Innovation", url: "https://raeng.org.uk/news/the-2027-africa-prize-for-engineering-innovation-calls-for-applications-across-sub-saharan-africa/" }
+  - { name: "in5", url: "https://infive.ae/" }
+  - { name: "The Garage Riyadh", url: "https://thegarage.sa/" }
+  - { name: "Oasis500", url: "https://oasis500.com/" }
+  - { name: "Misk Launchpad", url: "https://hub.misk.org.sa/programs/entrepreneurship/misk-launchpad/" }
+  - { name: "Start-Up Chile BIG 13", url: "https://startupchile.org/en/" }
+  - { name: "Platanus", url: "https://platan.us/" }
+  - { name: "parallel18 P18", url: "https://parallel18.com/p18/" }
+  - { name: "BNDES Garagem", url: "https://garagem.bndes.gov.br/" }
+  - { name: "Semilla Inicia (ChileAtiende / Corfo)", url: "https://www.chileatiende.gob.cl/fichas/67002-semilla-inicia" }
+  - { name: "500 LatAm", url: "https://latam.aplica.500.co/" }
+  - { name: "Latitud Fellowship", url: "https://www.latitud.com/fellowship" }
+  - { name: "K-Startup Grand Challenge 2026", url: "https://ksgc.global/grand-challenge" }
+  - { name: "AppWorks Accelerator", url: "https://appworks.tw/accelerator/" }
+  - { name: "Cyberport Incubation Programme (HK Government ITIB)", url: "https://www.itib.gov.hk/en/i_and_t_support/support_start_ups.html" }
+  - { name: "HKSTP Incubation Programme", url: "https://www.hkstp.org/programmes/incubation/incubation-programme" }
+  - { name: "HKSTP Ideation Programme", url: "https://www.hkstp.org/programmes/ideation" }
+  - { name: "Startmate Accelerator", url: "https://www.startmate.com/accelerator" }
+  - { name: "Antler Australia Residency", url: "https://www.antler.co/residency/australia" }
+  - { name: "Blackbird Giants", url: "https://blackbird.vc/giants" }
+  - { name: "Creative HQ Fintech Lab", url: "https://creativehq.co.nz/build-for-founders/fintech-lab/" }
+
+  # --- Found by `npm run discover` ---
+  - { name: "Startup India FoF 2.0", url: "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-startup-india-fund-of-funds-2-0-to-mobilize-venture-capital-for-indias-startup-ecosystem" }
+  - { name: "CGSS", url: "https://www.startupindia.gov.in/content/sih/en/credit-guarantee-scheme-for-startups.html" }
+  - { name: "BIRAC BIG", url: "https://www.birac.nic.in/webcontent/1761936564_big_new_guidelines_nov_2025.pdf" }
+  - { name: "BIRAC SEED Fund", url: "https://www.indiascienceandtechnology.gov.in/funding-opportunities/startups/birac-incubators-seed-fund" }
+  - { name: "BIRAC LEAP Fund", url: "https://birac.nic.in/leapFund.php" }
+  - { name: "NIDHI-PRAYAS", url: "https://nidhi.dst.gov.in/" }
+  - { name: "NIDHI-EIR", url: "https://nidhi.dst.gov.in/nidhieir/" }
+  - { name: "MeitY TIDE 2.0", url: "https://msh.meity.gov.in/schemes/tide" }
+  - { name: "MeitY SAMRIDH", url: "https://msh.meity.gov.in/schemes/samridh" }
+  - { name: "MeitY GENESIS", url: "https://msh.meity.gov.in/schemes/genesis" }
+  - { name: "iDEX DISC (SPARK)", url: "https://idex.gov.in" }
+  - { name: "AIM AIC / ACIC", url: "https://aim.gov.in/pdf/AIC-Guidelines-Final_24Nov-2023.pdf" }
+  - { name: "AIM ANIC 2.0", url: "https://aim.gov.in/atal-new-india-challenge-2.0.php" }
+  - { name: "SIDBI Venture Debt", url: "https://www.sidbi.in/head/uploads/other_loans_document/Venture%20Debt%20Financing%20to%20MSMEs.pdf" }
+  - { name: "MSME Idea Hackathon", url: "https://innovative.msme.gov.in" }
+  - { name: "National Startup Awards", url: "https://www.startupindia.gov.in/content/sih/en/nsa2026.html" }
+  - { name: "Section 80-IAC", url: "https://www.startupindia.gov.in/content/sih/en/startup-scheme.html" }
+  - { name: "Startup India Seed Fund Scheme (SISFS)", url: "https://seedfund.startupindia.gov.in/" }
+  - { name: "Karnataka ELEVATE (incl. Unnati, Minorities)", url: "https://eitbt.karnataka.gov.in/startup/public/163/elevate-nxt-2026-and-elevate-minorities-2026/en" }
+  - { name: "Kerala KSUM Innovation Grants", url: "https://startupmission.kerala.gov.in/" }
+  - { name: "Telangana T-Hub", url: "https://t-hub.co/" }
+  - { name: "Telangana WE Hub", url: "https://wehub.telangana.gov.in/" }
+  - { name: "Telangana Innovation Policy Incentives (TSIC)", url: "https://startup.telangana.gov.in/funding-incentives/" }
+  - { name: "Tamil Nadu TANSEED", url: "https://startuptn.in/" }
+  - { name: "Gujarat SSIP 2.0", url: "https://www.ssipgujarat.in/" }
+  - { name: "Gujarat Startup/Innovation Scheme", url: "https://ic.gujarat.gov.in/" }
+  - { name: "Gujarat iCreate", url: "https://icreate.org.in/" }
+  - { name: "Maharashtra Startup Week (MSInS)", url: "https://msins.in/" }
+  - { name: "Rajasthan iStart", url: "https://istart.rajasthan.gov.in/" }
+  - { name: "Uttar Pradesh Startup Policy 2026", url: "https://startinup.up.gov.in/" }
+  - { name: "Startup Odisha Allowance & Product Grant", url: "https://startupodisha.gov.in/startup-incentives/" }
+  - { name: "Andhra Pradesh Startup Policy 4.0", url: "https://apit.ap.gov.in/assets/files/2025ITC_36424_MS9_E.pdf" }
+  - { name: "Haryana Startup Seed Grant", url: "https://haryanaindustries.gov.in/themes/backend/uploads/Startup%20Seed%20Funding%20Scheme.pdf" }
+  - { name: "Punjab Startup Seed Grant", url: "https://www.startupindia.gov.in/content/sih/en/state-startup-policies/Punjab-state-policy.html" }
+  - { name: "Madhya Pradesh Startup Policy 2025", url: "https://invest.mp.gov.in/wp-content/uploads/2025/02/Assistance.pdf" }
+  - { name: "Goa Seed Capital Grant", url: "https://msme.goa.gov.in/home/Scheme-Details/Seed-Capital-Scheme" }
+  - { name: "IIMA Ventures", url: "https://www.iimaventures.com/" }
+  - { name: "NSRCEL Women Startup Program", url: "https://www.nsrcel.org/women-startup-program/" }
+  - { name: "NSRCEL Launchpad", url: "https://nsrcel.org/launchpad" }
+  - { name: "SINE IIT Bombay", url: "https://www.sineiitb.org/" }
+  - { name: "IITM Incubation Cell", url: "https://www.iitm.ac.in/research-park/incubation-cell" }
+  - { name: "FITT IIT Delhi", url: "https://fitt-iitd.in/web/tbiu" }
+  - { name: "SIIC IIT Kanpur", url: "https://www.siicincubator.com/" }
+  - { name: "Venture Center", url: "https://www.venturecenter.co.in/funding/seed-investments/nidhi-sss" }
+  - { name: "KIIT-TBI", url: "https://kiitincubator.in/incubate/" }
+  - { name: "Social Alpha", url: "https://www.socialalpha.org/" }
+  - { name: "Villgro", url: "https://villgro.org/incubation/" }
+  - { name: "Axilor Ventures", url: "https://www.axilor.com/" }
+  - { name: "Rainmatter Capital", url: "https://rainmatter.com/" }
+  - { name: "Rainmatter Foundation", url: "https://rainmatter.org/" }
+  - { name: "Flipkart Leap Ahead", url: "https://www.flipkartleap.com/leap-ahead/" }
+  - { name: "Walmart Vriddhi", url: "https://www.walmartvriddhi.org/" }
+  - { name: "JioGenNext", url: "https://www.jiogennext.com/" }
+  - { name: "Microsoft for Startups India", url: "https://www.microsoft.com/en-in/startups" }
+  - { name: "Qualcomm Design in India Challenge", url: "https://www.qualcomm.com/company/locations/india/design-in-india-program/design-in-india-challenge" }
+  - { name: "Wadhwani Liftoff", url: "https://wadhwanifoundation.org/initiatives/entrepreneurship/" }
+  - { name: "Lightspeed India Ascends", url: "https://india-ascends.devfolio.co/" }
+  - { name: "All In Capital", url: "https://www.allincapital.vc/apply_now" }
+  - { name: "Titan Capital", url: "https://titancapital.vc/getinvestment" }
+  - { name: "Whiteboard Capital", url: "https://www.whiteboardcap.com/" }
+  - { name: "Inflection Point Ventures", url: "https://ipventures.in/index.php/get-funding-for-your-startup/" }
+  - { name: "Venture Catalysts", url: "https://www.venturecatalysts.in/Form" }
+  - { name: "Indian Angel Network", url: "https://www.indianangelnetwork.com/contact" }
+  - { name: "Mumbai Angels", url: "https://www.mumbaiangels.com/" }
+  - { name: "LetsVenture (LVX)", url: "https://lvxventures.com/equity-faq" }
+  - { name: "Kae Capital", url: "https://www.kae-capital.com/" }
+  - { name: "Sprout Venture Partners", url: "https://www.sproutvp.com/" }
+  - { name: "Alteria Capital", url: "https://alteriacapital.com/contact/" }
+  - { name: "Trifecta Capital", url: "https://trifectacapital.in/" }
+  - { name: "Stride Ventures", url: "https://www.strideventures.global/" }
+  - { name: "InnoVen Capital India", url: "https://www.innovencapital.com/" }
+  - { name: "BlackSoil", url: "https://www.blacksoil.co.in/" }
+  - { name: "GetVantage", url: "https://getvantage.co/" }
+  - { name: "Velocity", url: "https://www.velocity.in/" }
+  - { name: "NIDHI-SSP", url: "https://nidhi.dst.gov.in/" }
+  - { name: "iDEX ADITI", url: "https://idex.gov.in" }
+  - { name: "DPIIT Startup Recognition Benefits", url: "https://www.startupindia.gov.in/content/sih/en/startup-scheme.html" }
+  - { name: "Karnataka ELEVATE NxT (DeepTech)", url: "https://eitbt.karnataka.gov.in/startup/public/163/elevate-nxt-2026-and-elevate-minorities-2026/en" }
+  - { name: "Kerala KSUM Seed Loan", url: "https://startupmission.kerala.gov.in/" }
+  - { name: "Tamil Nadu SC/ST Startup Fund", url: "https://startuptn.in/" }
+  - { name: "Maharashtra MSInS IPR & Quality Support", url: "https://msins.in/" }

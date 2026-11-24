@@ -5,32 +5,92 @@ on:
     - cron: "0 */6 * * *"   # check every program every 6 hours
     - cron: "0 3 * * 1"     # Mondays: also discover new programs
   workflow_dispatch:         # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]         # code changes: rebuild the site only
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
-concurrency: update
+concurrency:
+  group: update-and-deploy
+  cancel-in-progress: false
 
 jobs:
   update:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # Optional. Reads pages that block bots or need JavaScript (about 38 of ~200), once a day each.
+      FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+      # Set the repo variable RADAR_FIRECRAWL=always to read every page through Firecrawl (more credits).
+      RADAR_FIRECRAWL: ${{ vars.RADAR_FIRECRAWL }}
+      # Optional. Grok scans X once a day for funding news (X Search bills ~$5 per 1,000 posts read).
+      XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+
+      - name: Check the API key is set
+        id: key
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::ANTHROPIC_API_KEY secret is not set; skipping the agent."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Discover new programs
-        if: github.event.schedule == '0 3 * * 1' || github.event_name == 'workflow_dispatch'
-        run: uv run radar discover
+        if: steps.key.outputs.ok == 'true' && (github.event.schedule == '0 3 * * 1' || github.event_name == 'workflow_dispatch')
+        run: npm run discover
+
+      - name: Scan X for funding news (daily)
+        if: steps.key.outputs.ok == 'true' && env.XAI_API_KEY != '' && (github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */6 * * *')
+        run: |
+          if [ "$(date -u +%H)" = "00" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            npm run x-signals
+          else
+            echo "X scan runs once a day (00 UTC); skipping."
+          fi
 
       - name: Check all programs
-        run: uv run radar update
+        if: steps.key.outputs.ok == 'true'
+        run: npm run update
 
       - name: Commit changes
+        if: steps.key.outputs.ok == 'true'
         run: |
           git config user.name "funds-radar"
           git config user.email "funds-radar@users.noreply.github.com"
           git add -A
           git diff --cached --quiet || git commit -m "Update programs $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
+
+  deploy:
+    needs: update
+    if: always() && needs.update.result != 'failure' && needs.update.result != 'cancelled'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }  # pick up the commit the update job just pushed
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm test
+      - name: Build site
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      - run: touch out/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: out }
+      - id: deployment
+        uses: actions/deploy-pages@v4
